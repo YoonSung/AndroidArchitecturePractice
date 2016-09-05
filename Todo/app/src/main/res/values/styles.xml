@@ -10,5 +10,5 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <string name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar"/>
+    <style name="Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
 </resources>
