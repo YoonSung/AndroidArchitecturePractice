@@ -1,9 +1,10 @@
-package yoon.architree.org.todo;
+package yoon.architree.org.todo.tasks;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import yoon.architree.org.todo.R;
 
-public class MainActivity extends AppCompatActivity {
+public class TasksActivity  extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
