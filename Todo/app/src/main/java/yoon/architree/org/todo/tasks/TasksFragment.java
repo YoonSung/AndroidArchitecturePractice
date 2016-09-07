@@ -120,8 +120,7 @@ public class TasksFragment extends Fragment implements TasksContract.View {
         });
 
         // Set up floating action button
-        FloatingActionButton fab =
-                (FloatingActionButton) getActivity().findViewById(R.id.fab_add_task);
+        FloatingActionButton fab = (FloatingActionButton) getActivity().findViewById(R.id.fab_add_task);
 
         fab.setImageResource(R.drawable.ic_add);
         fab.setOnClickListener(new View.OnClickListener() {
