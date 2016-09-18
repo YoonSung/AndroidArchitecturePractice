@@ -3,6 +3,8 @@ package yoon.architree.org.todo.taskdetail;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
+import com.google.common.base.Strings;
+
 import yoon.architree.org.todo.data.Task;
 import yoon.architree.org.todo.data.source.TasksDataSource;
 import yoon.architree.org.todo.data.source.TasksRepository;
@@ -25,7 +27,7 @@ public class TaskDetailPresenter implements TaskDetailContract.Presenter {
     public TaskDetailPresenter(@Nullable String taskId,
                                @NonNull TasksRepository tasksRepository,
                                @NonNull TaskDetailFragment taskDetailView) {
-        this.mTaskId = taskId;
+        mTaskId = taskId;
         mTasksRepository = checkNotNull(tasksRepository, "tasksRepository cannot be null!");
         mTaskDetailView = checkNotNull(taskDetailView, "taskDetailView cannot be null!");
         
@@ -38,7 +40,7 @@ public class TaskDetailPresenter implements TaskDetailContract.Presenter {
     }
 
     private void openTask() {
-        if (mTaskId == null || mTaskId.isEmpty()) {
+        if (Strings.isNullOrEmpty(mTaskId)) {
             mTaskDetailView.showMissingTask();
             return;
         }
@@ -72,7 +74,7 @@ public class TaskDetailPresenter implements TaskDetailContract.Presenter {
 
     @Override
     public void editTask() {
-        if (null == mTaskId || mTaskId.isEmpty()) {
+        if (Strings.isNullOrEmpty(mTaskId)) {
             mTaskDetailView.showMissingTask();
             return;
         }
@@ -87,7 +89,7 @@ public class TaskDetailPresenter implements TaskDetailContract.Presenter {
 
     @Override
     public void completeTask() {
-        if (null == mTaskId || mTaskId.isEmpty()) {
+        if (Strings.isNullOrEmpty(mTaskId)) {
             mTaskDetailView.showMissingTask();
             return;
         }
@@ -97,7 +99,7 @@ public class TaskDetailPresenter implements TaskDetailContract.Presenter {
 
     @Override
     public void activateTask() {
-        if (mTaskId == null || mTaskId.isEmpty()) {
+        if (Strings.isNullOrEmpty(mTaskId)) {
             mTaskDetailView.showMissingTask();
             return;
         }
@@ -109,13 +111,13 @@ public class TaskDetailPresenter implements TaskDetailContract.Presenter {
         String title = task.getTitle();
         String description = task.getDescription();
 
-        if (title != null && title.isEmpty()) {
+        if (Strings.isNullOrEmpty(title)) {
             mTaskDetailView.hideTitle();
         } else {
             mTaskDetailView.showTitle(title);
         }
 
-        if (description != null && description.isEmpty()) {
+        if (Strings.isNullOrEmpty(description)) {
             mTaskDetailView.hideDescription();
         } else {
             mTaskDetailView.showDescription(description);
